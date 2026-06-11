@@ -8,7 +8,7 @@
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
-<title>Simulatore Patrimoniale Pro — Suite Completa</title>
+<title>Suite Patrimoniale — Too Big To Fail Edition</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
@@ -36,7 +36,7 @@
 <div id="view-home" class="view active">
   <div class="home-hero">
     <h1>Pianifica il tuo <span>patrimonio</span> con dati alla mano.</h1>
-    <p>Una suite professionale di simulazione patrimoniale: scenari multipli, Monte Carlo, regimi economici, sequence risk e fase di decumulo — tutto in un'unica interfaccia, gratuita e senza registrazione.</p>
+    <p>Una suite professionale di simulazione patrimoniale in edizione <strong>Too Big To Fail</strong>: scenari multipli, Monte Carlo, regimi economici, sequence risk e decumulo — tutto in un'unica interfaccia, gratuita e senza registrazione. Niente consigli finanziari (sia mai che ci arrestano), solo numeri da esplorare.</p>
   </div>
   <div class="home-cards">
     <button class="home-card sim" onclick="showView('app')">
@@ -44,7 +44,7 @@
       <h2>Vai al Simulatore Patrimoniale</h2>
       <p>Inserisci patrimonio, PAC e orizzonte: ottieni proiezioni multi-scenario, distribuzione Monte Carlo, scenari macro-economici e analisi del decumulo.</p>
       <ul>
-        <li>7 schede integrate e sincronizzate</li>
+        <li>12 schede integrate e sincronizzate</li>
         <li>Report PDF dettagliato con grafici</li>
         <li>Sequence risk &amp; volatilità storica</li>
       </ul>
@@ -62,6 +62,38 @@
       <span class="cta">Apri la guida →</span>
     </button>
   </div>
+  <!-- ── I TRE HOST ── -->
+  <div class="tbtf-hosts-section">
+    <div class="tbtf-hosts-head">
+      <h2>Tre voci, tre guide</h2>
+      <p>Come al bancone del platonico bar del podcast: ognuno dei tre ti accompagna nella sua parte preferita della suite. Scegli da chi farti portare in giro.</p>
+    </div>
+    <div class="tbtf-hosts-grid">
+      <button class="tbtf-host-card coral" onclick="showView('guide')">
+        <span data-tbtf-host="alain" data-tbtf-size="88"></span>
+        <h3>Alain <small>Salto Mentale</small></h3>
+        <p class="tbtf-role">il Comandante</p>
+        <p class="tbtf-quote">«Prima di smanettare con gli slider, capiamo cosa stiamo facendo. Ti porto io nella guida — domande scomode incluse.»</p>
+        <span class="cta">Guida all'utilizzo →</span>
+      </button>
+      <button class="tbtf-host-card" onclick="if(window.setTier)window.setTier('base');showView('app')">
+        <span data-tbtf-host="vittorio" data-tbtf-size="88"></span>
+        <h3>Vittorio <small>Finanza Cafona</small></h3>
+        <p class="tbtf-role">l'uomo del popolo</p>
+        <p class="tbtf-quote">«Patrimonio, PAC, orizzonte e quanto ci resta in tasca: roba concreta, zero fronzoli. La versione Base è casa mia.»</p>
+        <span class="cta">Versione Base →</span>
+      </button>
+      <button class="tbtf-host-card ink" onclick="if(window.setTier)window.setTier('pro');showView('app')">
+        <span data-tbtf-host="nicola" data-tbtf-size="88"></span>
+        <h3>Nicola <small>The Italian Leather Sofa</small></h3>
+        <p class="tbtf-role">il Maestro, quello tecnico</p>
+        <p class="tbtf-quote">«GARCH, CAPE, VaR, Markowitz: nella Pro andiamo al fondo delle cose. Tranquillo, te le spiego strada facendo.»</p>
+        <span class="cta">Suite Pro →</span>
+      </button>
+    </div>
+    <div class="tbtf-license-note">Interfaccia ispirata allo stile di <a href="https://www.toobigtofail.it" target="_blank" rel="noopener">Too Big To Fail</a> — edizione realizzata su licenza del podcast.</div>
+  </div>
+
   <!-- ── TIER SELECTION BANNER ── -->
   <div class="home-tier-section">
     <div class="home-tier-banner">
@@ -123,6 +155,13 @@
     <div class="guide-head">
       <h1>📖 Guida all'utilizzo del Simulatore</h1>
       <button class="guide-dl" id="guideDlBtn" onclick="downloadGuidePDF()">⬇️ Scarica guida in PDF</button>
+    </div>
+    <div class="tbtf-guide-banner">
+      <span data-tbtf-host="alain" data-tbtf-size="68"></span>
+      <div>
+        <div class="tbtf-guide-banner-name">Alain · Salto Mentale — il Comandante</div>
+        <div class="tbtf-guide-banner-text">«Benvenuto, questa guida la presidio io. Scheda per scheda, parametro per parametro, con qualche domanda scomoda per non farti usare i numeri a caso. Andiamo con ordine.»</div>
+      </div>
     </div>
     <p class="guide-intro">Questa guida spiega passo-passo come utilizzare ciascuna scheda della suite, quali parametri inserire e — soprattutto — <b>come ogni modifica incide sui risultati finali</b>. Tutti i dati restano nel tuo browser: non viene inviato nulla a server esterni.</p>
 
@@ -647,8 +686,11 @@
 <div id="view-app" class="view">
 
 <div class="header">
-  <h1>Simulatore Patrimoniale <span class="beta-badge">BETA 1 · GIU 2026</span></h1>
-  <span class="sub">Suite Professionale v3 · GARCH · Fiscalità IT Completa · Backtesting Storico</span>
+  <span class="tbtf-logo-slot" data-tbtf-logo="42"></span>
+  <div class="tbtf-title-block">
+    <h1>Simulatore Patrimoniale <span class="tbtf-wordmark">Too Big To Fail</span> <span class="beta-badge">BETA 1 · GIU 2026</span></h1>
+    <span class="sub">Edizione su licenza del podcast · finanza personale a 3 voci · GARCH · Fiscalità IT · Backtesting</span>
+  </div>
   <div class="badge">PRO SUITE</div>
 </div>
 
@@ -1877,6 +1919,7 @@
 <script src="scenarios-manager.js"></script>
 <script src="pro-features.js"></script>
 <script src="quant-analytics.js"></script>
+<script src="tbtf-brand.js"></script>
 <script src="tier-system.js"></script>
 
 </body>
