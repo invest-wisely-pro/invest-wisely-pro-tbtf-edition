@@ -2,8 +2,10 @@
 // CRISIS STRESS TEST — Scenari Macro Storici Dettagliati
 // Simula il path mensile ESATTO del portafoglio dell'utente
 // durante le principali crisi storiche 1970-2024.
-// I rendimenti sono presi direttamente da HIST_MONTHLY
-// (dati mensili reali), non da parametri sintetici.
+// I rendimenti provengono da HIST_MONTHLY: serie mensile ricostruita,
+// ancorata ai totali ANNUI reali con i mesi-crisi chiave fissati ai valori
+// storici (es. ott 1987 = -21.5%); la distribuzione degli altri mesi
+// all'interno dell'anno è stimata, non tick-by-tick reale.
 // ══════════════════════════════════════════════════════════════
 
 // ── Definizione crisi con coordinate mensili precise ─────────
@@ -102,8 +104,8 @@ const CRISIS_SCENARIOS = [
     id: 'eurocrisis1112',
     label: '2011\u201312 Crisi Euro Sovrana',
     shortLabel: '2011\u201312',
-    color: '#23606f',
-    bg: 'rgba(35,96,111,.10)',
+    color: '#1a73e8',
+    bg: 'rgba(26,115,232,.10)',
     startYr: 2011, startMo: 5,
     peakYr:  2011, peakMo:  7,
     troughYr:2011, troughMo: 9,
@@ -130,8 +132,8 @@ const CRISIS_SCENARIOS = [
     id: 'covid20',
     label: '2020 COVID-19 Crash',
     shortLabel: '2020',
-    color: '#23606f',
-    bg: 'rgba(35,96,111,.10)',
+    color: '#1a73e8',
+    bg: 'rgba(26,115,232,.10)',
     startYr: 2020, startMo:  1,
     peakYr:  2020, peakMo:   2,
     troughYr:2020, troughMo:  3,
@@ -293,7 +295,7 @@ function buildCrisisUI() {
 
   return `
   <div class="sec" style="margin-top:18px">
-    <div class="sec-label" data-info-id="info-crisis-stress" style="color:var(--red)">🔥 Stress Test Macro Storici — Path Mensile Esatto</div>
+    <div class="sec-label" data-info-id="info-crisis-stress" style="color:var(--red)">🔥 Stress Test Macro Storici — Path Mensile Ricostruito</div>
     <p style="font-size:12.5px;color:var(--text2);line-height:1.6;margin-bottom:14px">
       Simulazione del percorso mensile <strong>preciso</strong> del tuo portafoglio durante le principali crisi storiche,
       usando i rendimenti mensili reali 1970–2024. Nessuna approssimazione: ogni mese è il dato effettivo.
@@ -358,8 +360,7 @@ function buildCrisisUI() {
 
     <!-- Nota metodologica -->
     <div style="margin-top:14px;padding:10px 14px;background:var(--bg2);border:1px solid var(--border2);border-radius:8px;font-size:11.5px;color:var(--text3);line-height:1.7">
-      <strong>Metodologia:</strong> I rendimenti mensili provengono da HIST_MONTHLY (ancorati a MSCI World Net EUR, Bloomberg Euro Aggregate, oro LBMA in EUR),
-      calibrati sulle medie annue verificate. I pesi del portafoglio sono quelli attuali del simulatore.
+      <strong>Metodologia:</strong> I rendimenti mensili provengono da HIST_MONTHLY — serie mensile ricostruita: totali annui e mesi-crisi chiave ancorati ai dati reali (MSCI World Net EUR, Bloomberg Euro Aggregate, oro LBMA EUR), distribuzione infra-annuale stimata. I mesi delle grandi crisi (ott 1987, ott 2008, mar 2020…) corrispondono ai valori storici di fine mese. I pesi del portafoglio sono quelli attuali del simulatore.
       TER applicato mensilmente. Capitale, PAC e stadio del piano sono quelli impostati: lo stadio scala il capitale
       esposto al crollo (a inizio piano poco, a fine piano molto), coerente con la sezione Rischio di Sequenza del Backtesting.
       Drawdown calcolato rispetto al picco della finestra mostrata, non al picco assoluto storico.

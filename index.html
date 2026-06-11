@@ -8,7 +8,7 @@
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
-<title>Suite Patrimoniale — Too Big To Fail Edition</title>
+<title>Simulatore Patrimoniale Pro — Suite Completa</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
@@ -36,7 +36,7 @@
 <div id="view-home" class="view active">
   <div class="home-hero">
     <h1>Pianifica il tuo <span>patrimonio</span> con dati alla mano.</h1>
-    <p>Una suite professionale di simulazione patrimoniale in edizione <strong>Too Big To Fail</strong>: scenari multipli, Monte Carlo, regimi economici, sequence risk e decumulo — tutto in un'unica interfaccia, gratuita e senza registrazione. Niente consigli finanziari (sia mai che ci arrestano), solo numeri da esplorare.</p>
+    <p>Una suite professionale di simulazione patrimoniale: scenari multipli, Monte Carlo, regimi economici, sequence risk e fase di decumulo — tutto in un'unica interfaccia, gratuita e senza registrazione.</p>
   </div>
   <div class="home-cards">
     <button class="home-card sim" onclick="showView('app')">
@@ -62,38 +62,6 @@
       <span class="cta">Apri la guida →</span>
     </button>
   </div>
-  <!-- ── I TRE HOST ── -->
-  <div class="tbtf-hosts-section">
-    <div class="tbtf-hosts-head">
-      <h2>Tre voci, tre guide</h2>
-      <p>Come al bancone del platonico bar del podcast: ognuno dei tre ti accompagna nella sua parte preferita della suite. Scegli da chi farti portare in giro.</p>
-    </div>
-    <div class="tbtf-hosts-grid">
-      <button class="tbtf-host-card coral" onclick="showView('guide')">
-        <span data-tbtf-host="alain" data-tbtf-size="88"></span>
-        <h3>Alain <small>Salto Mentale</small></h3>
-        <p class="tbtf-role">il Comandante</p>
-        <p class="tbtf-quote">«Prima di smanettare con gli slider, capiamo cosa stiamo facendo. Ti porto io nella guida — domande scomode incluse.»</p>
-        <span class="cta">Guida all'utilizzo →</span>
-      </button>
-      <button class="tbtf-host-card" onclick="if(window.setTier)window.setTier('base');showView('app')">
-        <span data-tbtf-host="vittorio" data-tbtf-size="88"></span>
-        <h3>Vittorio <small>Finanza Cafona</small></h3>
-        <p class="tbtf-role">l'uomo del popolo</p>
-        <p class="tbtf-quote">«Patrimonio, PAC, orizzonte e quanto ci resta in tasca: roba concreta, zero fronzoli. La versione Base è casa mia.»</p>
-        <span class="cta">Versione Base →</span>
-      </button>
-      <button class="tbtf-host-card ink" onclick="if(window.setTier)window.setTier('pro');showView('app')">
-        <span data-tbtf-host="nicola" data-tbtf-size="88"></span>
-        <h3>Nicola <small>The Italian Leather Sofa</small></h3>
-        <p class="tbtf-role">il Maestro, quello tecnico</p>
-        <p class="tbtf-quote">«GARCH, CAPE, VaR, Markowitz: nella Pro andiamo al fondo delle cose. Tranquillo, te le spiego strada facendo.»</p>
-        <span class="cta">Suite Pro →</span>
-      </button>
-    </div>
-    <div class="tbtf-license-note">Interfaccia ispirata allo stile di <a href="https://www.toobigtofail.it" target="_blank" rel="noopener">Too Big To Fail</a> — edizione realizzata su licenza del podcast.</div>
-  </div>
-
   <!-- ── TIER SELECTION BANNER ── -->
   <div class="home-tier-section">
     <div class="home-tier-banner">
@@ -155,13 +123,6 @@
     <div class="guide-head">
       <h1>📖 Guida all'utilizzo del Simulatore</h1>
       <button class="guide-dl" id="guideDlBtn" onclick="downloadGuidePDF()">⬇️ Scarica guida in PDF</button>
-    </div>
-    <div class="tbtf-guide-banner">
-      <span data-tbtf-host="alain" data-tbtf-size="68"></span>
-      <div>
-        <div class="tbtf-guide-banner-name">Alain · Salto Mentale — il Comandante</div>
-        <div class="tbtf-guide-banner-text">«Benvenuto, questa guida la presidio io. Scheda per scheda, parametro per parametro, con qualche domanda scomoda per non farti usare i numeri a caso. Andiamo con ordine.»</div>
-      </div>
     </div>
     <p class="guide-intro">Questa guida spiega passo-passo come utilizzare ciascuna scheda della suite, quali parametri inserire e — soprattutto — <b>come ogni modifica incide sui risultati finali</b>. Tutti i dati restano nel tuo browser: non viene inviato nulla a server esterni.</p>
 
@@ -304,7 +265,7 @@
         <li><b>t di Student (ν=4, fat tail)</b> — distribuzioni a <i>code grasse</i>: crash del −20/−40% accadono 3–5× più spesso rispetto alla gaussiana. Curtosi elevata. <b>Raccomandato per la pianificazione conservativa.</b></li>
         <li><b>GARCH(1,1) — volatility clustering</b> — la volatilità non è costante ma si autoalimenta: un mese volatile tende a essere seguito da un altro volatile. I parametri α=0,09, β=0,90 sono calibrati su equity globale. Il fan chart si allarga e restringe nel tempo invece di essere monotonicamente crescente.</li>
         <li><b>Regime-Switching (Hamilton 1989)</b> — il mercato alterna stati latenti Bull (μ=+1,2%/m, σ=3,5%) e Bear (μ=−1,8%/m, σ=7%). La matrice di transizione P(Bull→Bull)=97%, P(Bear→Bull)=20% cattura la persistenza dei trend. I crash prolungati emergono naturalmente senza impostare il Sequence Risk manualmente.</li>
-        <li><b>Block Bootstrap — Dati Storici Reali (1970–2024)</b> — campiona blocchi di rendimenti mensili reali da 660 osservazioni storiche (MSCI World Net EUR, Bloomberg Euro Aggregate, oro LBMA in EUR; inflazione CPI USA da FRED). I blocchi di 12 mesi preservano l'autocorrelazione seriale (volatility clustering, momentum). Non assume nessuna distribuzione parametrica: i crash storici (1973, 1987, 2000, 2008, 2022) entrano direttamente nella simulazione con la loro frequenza reale. È il modello più accurato per portafogli con componente azionaria e oro.</li>
+        <li><b>Block Bootstrap — Dati Storici Reali (1970–2024)</b> — campiona blocchi da 660 osservazioni mensili storiche — serie mensile ricostruita: totali annui e mesi-crisi chiave ancorati ai dati reali (MSCI World Net EUR, Bloomberg Euro Aggregate, oro LBMA EUR), distribuzione infra-annuale stimata; inflazione CPI USA da FRED. I blocchi di 12 mesi preservano l'autocorrelazione seriale (volatility clustering, momentum). Non assume nessuna distribuzione parametrica: i crash storici (1973, 1987, 2000, 2008, 2022) entrano direttamente nella simulazione con la loro frequenza reale. È il modello più accurato per portafogli con componente azionaria e oro.</li>
 
       </ul>
       <div class="guide-impact"><b>Come leggere i risultati:</b> confronta il P10 del Gaussiano con quello del Regime-Switching — la differenza mostra quanto la tua pianificazione dipende dall'assunzione di normalità. Il Regime-Switching e il t-Student producono code più pesanti perché modellano crash più frequenti e prolungati.</div>
@@ -686,11 +647,8 @@
 <div id="view-app" class="view">
 
 <div class="header">
-  <span class="tbtf-logo-slot" data-tbtf-logo="42"></span>
-  <div class="tbtf-title-block">
-    <h1>Simulatore Patrimoniale <span class="tbtf-wordmark">Too Big To Fail</span></h1>
-    <span class="sub">Edizione su licenza del podcast · finanza personale a 3 voci · GARCH · Fiscalità IT · Backtesting</span>
-  </div>
+  <h1>Simulatore Patrimoniale <span class="beta-badge">BETA 1 · GIU 2026</span></h1>
+  <span class="sub">Suite Professionale v3 · GARCH · Fiscalità IT Completa · Backtesting Storico</span>
   <div class="badge">PRO SUITE</div>
 </div>
 
@@ -1919,7 +1877,6 @@
 <script src="scenarios-manager.js"></script>
 <script src="pro-features.js"></script>
 <script src="quant-analytics.js"></script>
-<script src="tbtf-brand.js"></script>
 <script src="tier-system.js"></script>
 
 </body>
