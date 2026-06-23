@@ -137,17 +137,26 @@
     <div class="footer-disclaimer" style="margin-top:10px">
       <strong>Fonte e natura dei dati storici</strong><br>
       I dati storici 1970&ndash;2024 utilizzati nel backtesting e nelle simulazioni Monte Carlo sono
-      <strong>a scopo illustrativo</strong>. I rendimenti annuali sono <strong>ancorati alle serie ufficiali</strong>
-      delle tre asset class &mdash; azioni <strong>MSCI World</strong> (Net Total Return, EUR), obbligazioni
-      <strong>Bloomberg Euro Aggregate</strong> e oro (prezzo in EUR, LBMA) &mdash; e ne riproducono i valori
-      di lungo periodo (CAGR, volatilità) e l'andamento dei principali anni di crisi (1973&ndash;74, 1987,
-      2000&ndash;02, 2008, 2020, 2022). La <strong>granularità mensile</strong> dei singoli mesi è una
-      <strong>ricostruzione</strong> coerente con il rendimento annuo reale, non una serie tick-by-tick certificata.
-      I dati <strong>non provengono da feed su licenza dei fornitori degli indici</strong> e non costituiscono
+      <strong>a scopo illustrativo</strong>. I rendimenti annuali delle tre asset class principali sono
+      <strong>ancorati alle serie ufficiali</strong> &mdash; azioni <strong>MSCI World</strong> (Net Total
+      Return, EUR), obbligazioni <strong>Bloomberg Euro Aggregate</strong> e oro (prezzo in EUR, LBMA) &mdash;
+      e ne riproducono i valori di lungo periodo (CAGR, volatilità) e l'andamento dei principali anni di
+      crisi (1973&ndash;74, 1987, 2000&ndash;02, 2008, 2020, 2022). Gli asset aggiuntivi dispongono di
+      <strong>serie storiche reali dedicate</strong>: i fattori azionari (Small Cap Value, Momentum, Value,
+      Quality, Investment, Size) derivano dalla <strong>Kenneth French Data Library</strong>, la Bassa
+      Volatilità dal dataset <strong>AQR Betting Against Beta</strong>, l'Immobiliare Quotato dall'indice
+      <strong>FTSE Nareit All Equity REITs</strong> e i Mercati Emergenti dai portafogli Fama-French
+      Emerging Markets (dal 1989); tutte convertite in EUR coi cambi ufficiali BCE/FRED.
+      La <strong>granularità mensile</strong> dei singoli mesi è una <strong>ricostruzione</strong> coerente
+      con il rendimento annuo reale, non una serie tick-by-tick certificata. I dati
+      <strong>non provengono da feed su licenza dei fornitori degli indici</strong> e non costituiscono
       una riproduzione ufficiale degli stessi. Per analisi che richiedano dati certificati si rimanda alle
       fonti primarie (<a href="https://www.msci.com" target="_blank" rel="noopener" style="color:var(--blue)">MSCI</a>,
-      Bloomberg, <a href="https://www.lbma.org.uk" target="_blank" rel="noopener" style="color:var(--blue)">LBMA</a>)
-      o a strumenti basati su dati su licenza (es. <a href="https://curvo.eu" target="_blank" rel="noopener" style="color:var(--blue)">Curvo.eu</a>). MSCI, Bloomberg e LBMA sono marchi dei rispettivi proprietari, citati a solo scopo identificativo delle serie di riferimento; nessuna affiliazione o sponsorizzazione è implicita.
+      Bloomberg, <a href="https://www.lbma.org.uk" target="_blank" rel="noopener" style="color:var(--blue)">LBMA</a>,
+      <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html" target="_blank" rel="noopener" style="color:var(--blue)">Kenneth French Data Library</a>,
+      <a href="https://www.aqr.com/Insights/Datasets" target="_blank" rel="noopener" style="color:var(--blue)">AQR</a>,
+      <a href="https://www.reit.com" target="_blank" rel="noopener" style="color:var(--blue)">Nareit</a>)
+      o a strumenti basati su dati su licenza (es. <a href="https://curvo.eu" target="_blank" rel="noopener" style="color:var(--blue)">Curvo.eu</a>). MSCI, Bloomberg, LBMA, FTSE Nareit e AQR sono marchi dei rispettivi proprietari, citati a solo scopo identificativo delle serie di riferimento; nessuna affiliazione o sponsorizzazione è implicita.
     </div>
     <div class="footer-links">
       <button onclick="showView('privacy')" class="footer-link-btn">🔒 Privacy Policy</button>
@@ -322,7 +331,7 @@
       <h2><span class="num">7</span> Scheda <b>Backtesting Storico</b> 📅</h2>
       <p>Il Backtesting Storico risponde alla domanda <b>"Cosa sarebbe successo se avessi iniziato il mio piano in un anno specifico?"</b> — usando i rendimenti mensili effettivi reali 1970–2024 (non simulazioni parametriche). È la verifica più concreta della robustezza del tuo piano.</p>
       <h3>Come funziona il motore</h3>
-      <p>Il simulatore usa 660 osservazioni mensili (Gen 1970 – Dic 2024) di tre asset class: <b>azioni mercati sviluppati</b> (MSCI World equiv.), <b>obbligazioni aggregate</b> (Bloomberg US Agg equiv.) e <b>oro spot</b> — serie mensile ricostruita: totali annui e mesi-crisi chiave ancorati ai dati reali, distribuzione infra-annuale stimata. I pesi del portafoglio selezionato vengono applicati ai rendimenti mensili di ogni periodo. Il TER viene sottratto mensilmente. Il PAC viene aggiunto a inizio mese prima di applicare il rendimento.</p>
+      <p>Il simulatore usa 660 osservazioni mensili (Gen 1970 – Dic 2024). Le tre asset class di base &mdash; <b>azioni mercati sviluppati</b> (MSCI World equiv.), <b>obbligazioni aggregate</b> (Bloomberg Euro Agg equiv.) e <b>oro spot</b> &mdash; hanno serie mensile ricostruita: totali annui e mesi-crisi chiave ancorati ai dati reali, distribuzione infra-annuale stimata. Gli asset aggiuntivi (fattori azionari Small Cap Value, Momentum, Value, Quality, Investment, Size; Bassa Volatilità; Immobiliare Quotato REITs; Mercati Emergenti) usano <b>serie storiche reali dedicate</b> (Kenneth French Data Library, AQR, FTSE Nareit) convertite in EUR, anziché comportarsi come proxy del mercato sviluppato. I pesi del portafoglio selezionato vengono applicati ai rendimenti mensili di ogni periodo. Il TER viene sottratto mensilmente. Il PAC viene aggiunto a inizio mese prima di applicare il rendimento.</p>
       <h3>Anni di partenza disponibili</h3>
       <ul>
         <li><b>1973 — Stagflazione OPEC</b>: il peggior inizio nella storia moderna. Inflazione al 12%, azioni −48% in 2 anni, oro +162%. Testa la resilienza massima del piano in contesto inflattivo estremo.</li>
@@ -821,7 +830,7 @@
   <div class="li"><span class="ll" style="background:var(--blue);height:3.5px"></span>Base</div>
   <div class="li"><span class="ll" style="background:var(--orange)"></span>Pessimistico</div>
   <div class="li" id="legSeq" style="display:none"><span class="ll-dash" style="border-color:var(--purple)"></span>Seq.Risk</div>
-  <div class="li" id="legVol" style="display:none"><span class="ll" style="background:rgba(26,115,232,.15);width:20px;height:8px;border-radius:3px"></span>Bande vol.</div>
+  <div class="li" id="legVol" style="display:none"><span class="ll" style="background:rgba(35,96,111,.15);width:20px;height:8px;border-radius:3px"></span>Bande vol.</div>
   <div class="li"><span class="ll-dash" style="border-color:var(--border)"></span>Optionality</div>
   <div class="li"><span class="ldot" style="background:var(--green)"></span>PIC</div>
   <div class="li"><span class="ldot" style="background:var(--red)"></span>Spesa</div>
@@ -839,7 +848,7 @@
     <div><div class="sec-label" data-info-id="info-liquidazione" style="margin-bottom:4px;color:var(--blue)">Liquidazione Fiscale Finale (Nominale)</div><div style="font-size:12.5px;color:var(--text2)">Capital Gain a fine periodo — età <strong id="liqAge">—</strong>.</div></div>
     <button class="gbtn a-blue" id="liqBtn" onclick="toggleLiq()" style="font-weight:600;font-size:13px;padding:8px 16px">💰 Simula Vendita Totale (Netto)</button>
   </div>
-  <div id="liqData" style="display:none;margin-top:18px;border-top:1px solid rgba(26,115,232,.2);padding-top:18px"></div>
+  <div id="liqData" style="display:none;margin-top:18px;border-top:1px solid rgba(35,96,111,.2);padding-top:18px"></div>
 </div>
 
 <div class="sec" style="margin-bottom:10px"><div class="sec-label" data-info-id="info-swr">Rendita Sostenibile — SWR (Nominale)</div><div id="swrData">—</div></div>
@@ -944,7 +953,7 @@
 <div class="tab-content" id="tab-scenarios">
 <div class="sec">
   <div class="sec-label" data-info-id="info-scenari-eco">🌐 Scenari Economici — Simulazione Multi-Regime</div>
-  <div id="ecoSyncBanner" style="margin:0 0 12px;padding:10px 14px;background:var(--blue-dim);border:1px solid rgba(26,115,232,.25);border-radius:var(--radius-sm);font-size:12.5px;font-family:'DM Mono',monospace"></div>
+  <div id="ecoSyncBanner" style="margin:0 0 12px;padding:10px 14px;background:var(--blue-dim);border:1px solid rgba(35,96,111,.25);border-radius:var(--radius-sm);font-size:12.5px;font-family:'DM Mono',monospace"></div>
 
   <div style="margin-bottom:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius-sm)">
     <div style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:8px">⏱ Fase in cui avviene lo scenario</div>
@@ -967,7 +976,7 @@
 <div id="ecoSelectedDesc" class="sec" style="display:none"></div>
 
 <div class="legend" style="margin-top:4px">
-  <div class="li"><span class="ll" style="background:#1a73e8;height:3.5px"></span>Scenario base (riferimento)</div>
+  <div class="li"><span class="ll" style="background:#23606f;height:3.5px"></span>Scenario base (riferimento)</div>
   <div class="li"><span class="ll" style="background:#d93025;height:3.5px"></span>Scenario economico selezionato</div>
   <div class="li"><span class="ll-dash" style="border-color:var(--border)"></span>Optionality</div>
 </div>
@@ -1069,7 +1078,7 @@
       <div class="li"><span class="ll" style="background:rgba(100,100,200,.55);height:8px;border-radius:2px"></span>Banda centrale P25–P75</div>
       <div class="li"><span class="ll" style="background:#5c6bc0;height:3.5px"></span>Mediana (P50)</div>
       <div class="li"><span class="ll" style="background:#9c27b0;height:2px;border-top:2px dashed #9c27b0;background:none"></span>Media</div>
-      <div class="li"><span class="ll" style="background:#1a73e8;height:2px;border-top:2px dashed #1a73e8;background:none"></span>Base (crescita normale)</div>
+      <div class="li"><span class="ll" style="background:#23606f;height:2px;border-top:2px dashed #23606f;background:none"></span>Base (crescita normale)</div>
       <div class="li"><span class="ll-dash" style="border-color:var(--border)"></span>Optionality</div>
     </div>
     <div class="chart-wrap" style="height:320px"><canvas id="chMultiRegime"></canvas></div>
@@ -1093,7 +1102,7 @@
 <div class="sec">
   <div class="sec-label" data-info-id="info-ab">⚖️ A/B Confronto — Due Strategie</div>
   <div class="info-box" style="margin-bottom:10px">Stessa configurazione base (PAC, patrimonio, età, orizzonte, tasse). Solo portafoglio, TER e PAC possono differire.</div>
-  <div id="abSyncBanner" style="padding:10px 14px;background:var(--blue-dim);border:1px solid rgba(26,115,232,.25);border-radius:var(--radius-sm);font-size:12px;color:var(--text2);margin-bottom:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+  <div id="abSyncBanner" style="padding:10px 14px;background:var(--blue-dim);border:1px solid rgba(35,96,111,.25);border-radius:var(--radius-sm);font-size:12px;color:var(--text2);margin-bottom:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
     <span style="font-weight:600;color:var(--blue)">📋 Ereditato dal Simulatore (uguale per A e B):</span>
     <span id="abSyncDetails">—</span>
   </div>
@@ -1377,7 +1386,7 @@
   </div>
 </div>
 
-<div id="btSyncBanner" style="display:none;margin-bottom:10px;padding:10px 14px;background:var(--blue-dim);border:1px solid rgba(26,115,232,.25);border-radius:var(--radius-sm);font-size:12.5px;font-family:'DM Mono',monospace"></div>
+<div id="btSyncBanner" style="display:none;margin-bottom:10px;padding:10px 14px;background:var(--blue-dim);border:1px solid rgba(35,96,111,.25);border-radius:var(--radius-sm);font-size:12.5px;font-family:'DM Mono',monospace"></div>
 
 <div id="btResults" style="display:none">
   <div class="sec">
