@@ -616,7 +616,8 @@ const INFO_TEXTS = {
       _backdrop.className = 'info-popover-backdrop';
       document.body.appendChild(_backdrop);
       _backdrop.addEventListener('click', closeInfoPopover);
-      _backdrop.addEventListener('touchend', (e) => { e.preventDefault(); closeInfoPopover(); });
+      _backdrop.addEventListener('touchstart', (e) => { e.preventDefault(); closeInfoPopover(); });
+      _backdrop.addEventListener('touchend', (e) => { e.preventDefault(); });
       // Pulsante di chiusura esplicito (touch + click)
       const closeBtn = _popover.querySelector('.info-popover-close');
       closeBtn.addEventListener('click', closeInfoPopover);
@@ -632,7 +633,10 @@ const INFO_TEXTS = {
     _popover.querySelector('.info-popover-title').textContent = info.title;
     _popover.querySelector('.info-popover-text').textContent = info.text;
     _popover.style.display = 'block';
-    if (_backdrop) _backdrop.classList.add('visible');
+    if (_backdrop) {
+      _backdrop.style.pointerEvents = '';
+      _backdrop.classList.add('visible');
+    }
     _activeBtn = btn;
 
     // Posizionamento smart: sotto il pulsante, con reflow se esce dallo schermo
@@ -643,7 +647,10 @@ const INFO_TEXTS = {
   function closeInfoPopover() {
     if (!_popover) return;
     _popover.classList.remove('visible');
-    if (_backdrop) _backdrop.classList.remove('visible');
+    if (_backdrop) {
+      _backdrop.classList.remove('visible');
+      _backdrop.style.pointerEvents = 'none';
+    }
     setTimeout(() => {
       if (_popover) _popover.style.display = 'none';
     }, 180);

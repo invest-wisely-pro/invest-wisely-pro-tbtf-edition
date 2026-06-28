@@ -4729,7 +4729,7 @@ async function generatePDF() {
     try { mc = runMontecarlo(); } catch (_) { mc = null; }
 
     // Palette
-    const BLU = [35, 96, 111], GRN = [30, 142, 62], ORG = [227, 116, 0], PUR = [147, 52, 230];
+    const BLU = [35,96,111], GRN = [30, 142, 62], ORG = [227, 116, 0], PUR = [147, 52, 230];
     const TEAL = [0, 137, 123], GRAY = [95, 99, 104], LBG = [248, 249, 250];
     const WHT = [255, 255, 255], RED = [217, 48, 37], DARK = [32, 33, 36];
     const W = 210, H = 297, ML = 14, MR = 14, CW = W - ML - MR;
